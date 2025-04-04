@@ -1,1 +1,128 @@
+/* Hey!
+ * Esse monte de comentários por aqui é por que nesse momento que estou escrevendo isso eu estou aprendendo ainda, então é pra eu me lembrar depois e dar uma revisada
+ */
 
+body {
+  background-color: #000000;
+  overflow: hidden; /* O hidden aqui tira o scroll do elemento, fazendo o que estiver saindo pra fora do elemento não tenha o scroll (deixando sem rolagem). Nesse caso, o site todo fica sem rolagem pois esse é o body */
+}
+
+main::after {
+  /* Isso cria um pseudo-elemento */
+  /* Usado para criar a sombra, também cria um elemento html depois do after */
+  content: ""; /* Content necessário para o background aparecer, até por que o background precisa de conteudo pra aparecer (por isso content vazio) */
+  position: fixed; /* Fixar o elemento no documento */
+  top: 0; /* Grudar no topo */
+  left: 0; /* Grudar na esquerda */
+
+  min-height: 100vh;
+  width: 80vh;
+  /* Criar a gradiente no background do elemento */
+  /* Útil: cssgradient.io */
+  background: linear-gradient(92deg, #000 25%, rgba(0, 0, 0, 0) 75%) no-repeat;
+}
+
+main .personagem {
+  display: none;
+  height: 100vh; /* "vh" serve para ocupar uma parte da tela, nesse caso, 100% da altura da tela */
+}
+
+main .personagem.selecionado {
+  /* Para elementos que tenham as duas classes "personagem" e "selecionado" ao mesmo tempo (por isso as classes todas juntas) */
+  display: block;
+}
+
+main .personagem .imagem {
+  /* Para estilizar elementos com a classe "imagem" que estão dentro de elementos com a classe "personagem" */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Para que a imagem cubra o tamanho da tela corretamente e não fique esticada como ficaria só com o vh no height lá em cima. Redimensiona a imagem para que fique certinho na largura que foi definida, até cortando ela se necessário */
+}
+
+.conteudo {
+  position: absolute;
+  top: 0;
+  left: 120px;
+
+  /* Flex */
+  display: flex; /* Controla a direção do elemento */
+  flex-direction: column; /* Direção dos elementos no flex, para que os elementos dentro nao fiquem um do lado do outro a gente coloca "column" (coluna) pra eles ficarem um em baixo do outro */
+  justify-content: center; /* Justifica os filhos para o centro do elemento, precisa do flex e precisa que o elemento tenha espaço (como por exemplo, o height aqui em baixo) */
+  height: 100vh; /* Faz a altura do elemento ficar da altura da tela */
+  max-width: 380px;
+  z-index: 1; /* Colocar os elementos uma camada acima */
+}
+
+.conteudo .nome-personagem {
+  color: white;
+  font-size: 48px;
+  font-family: "Secular One";
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.conteudo .descricao {
+  color: white;
+  font-family: "Rubik";
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.botoes {
+  background-color: rgba(0, 0, 0, 0.3); /* RGB com Alpha (opacidade) */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 180px;
+
+  display: flex;
+  flex-direction: column; /* Pra ficarem um em baixo do outro no flex */
+  align-items: center; /* Centralizar os botões horizontalmente dentro do elemento (a width aqui define o tamanho do elemento) */
+  justify-content: center; /* Centralizar os botões horizontalmente dentro do elemento */
+  min-height: 100vh;
+  gap: 16px;
+}
+
+.botoes .botao {
+  /* O botão individualmente */
+  border: none;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /* Isso é só pra tirar uma borda feia que tem na imagem */
+  width: 90px;
+  height: 90px;
+  cursor: pointer; /* Para quando passar o mouse, mudar o cursor para a mãozinha */
+  transition: transform 0.3s ease; /* Quando o elemento for carregado ele vai fazer essa transição */
+  border-radius: 50%;
+}
+
+.botoes .botao img {
+  /* A imagem dentro do botão */
+  border-radius: 50%; /* Deixar a imagem redonda */
+}
+
+.botoes .botao.selecionado {
+  /* o botão selecionado */
+  transform: scale(1.2);
+  box-shadow: 0 0 10px #d9d9d9;
+}
+
+/* Cor de sombra dos botões de personagens selecionados */
+.botoes .botao.cyberstorm.selecionado {
+  box-shadow: 0 0 10px #47ffc5;
+}
+.botoes .botao.codepixie.selecionado {
+  box-shadow: 0 0 10px #9747ff;
+}
+.botoes .botao.hexblade.selecionado {
+  box-shadow: 0 0 10px #ffa947;
+}
+.botoes .botao.neonpulse.selecionado {
+  box-shadow: 0 0 10px #e4309a;
+}
+.botoes .botao.codebreaker.selecionado {
+  box-shadow: 0 0 10px #fff047;
+}
