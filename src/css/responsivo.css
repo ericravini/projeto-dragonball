@@ -1,0 +1,72 @@
+/* Isso é uma media querie. max-width é a condição para o código abaixo ser executado (quando a tela tiver ou exceder 769px). */
+@media (max-width: 769px) {
+    /* Código Css vai aqui dentro */
+
+    main::after {
+        background: linear-gradient(0deg, #000 45%, rgba(0, 0, 0, 0.00) 70%) no-repeat;
+        width: 100vw; /* vw = viewport width, largura da tela */
+    }
+
+    main .personagem .imagem {
+        height: 85%;
+        object-position: center;
+    }
+
+    .conteudo {
+        justify-content: flex-end; /* Justificando o conteudo do personagem pro final do container */
+        left: 0; /* Alinha a esqueda */
+        top: -20%;
+        max-width: 100vw;
+        padding: 30px;
+    }
+
+    .conteudo .nome-personagem {
+        font-size: 30px;
+    }
+
+    .conteudo .descricao {
+        max-width: 500px;
+    }
+
+
+    .botoes {
+        flex-direction: row; /* Em linha */
+        align-items: flex-end; /* Joga os itens la pra baixo da tela*/
+        width: 100%; /* Pra nao sair pra fora da tela */
+        padding: 30px; /* Padding pra deixar mais bonitinho */
+    }
+
+    .botoes .botao {
+        width: 70px; /* Diminuir tamanho do botao */
+        height: 70px;
+    }
+
+    .botoes .botao img {
+       max-width: 70px; /* Diminuir a imagem */
+    }
+}
+
+/* Extensão responsive viewer para ver varias resoluções ao mesmo tempo no site */
+
+@media (max-width: 425px) { /* Para telas ainda menores */
+    main .personagem .imagem {
+        height: auto;
+    }
+
+    .counteudo {
+        top: -20%;
+    }
+
+    .botoes {
+        padding: 20px;
+        top: -10%;
+    }
+    
+    .botoes .botao {
+        width: 50px;
+    }
+
+    .botoes .botao img {
+        max-width: 50px
+    }
+}
