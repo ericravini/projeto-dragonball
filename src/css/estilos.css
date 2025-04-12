@@ -48,8 +48,8 @@ main .personagem .imagem {
   display: flex; /* Controla a direção do elemento */
   flex-direction: column; /* Direção dos elementos no flex, para que os elementos dentro nao fiquem um do lado do outro a gente coloca "column" (coluna) pra eles ficarem um em baixo do outro */
   justify-content: center; /* Justifica os filhos para o centro do elemento, precisa do flex e precisa que o elemento tenha espaço (como por exemplo, o height aqui em baixo) */
-  height: 100vh; /* Faz a altura do elemento ficar da altura da tela */
-  max-width: 380px;
+  height: 100vh; /* Faz a altura do elemento ficar da altura da tela (viewport height) */
+  max-width: 380px; /* Pra que a largura do elemento não se estenda demais */
   z-index: 1; /* Colocar os elementos uma camada acima */
 }
 
@@ -71,9 +71,9 @@ main .personagem .imagem {
 .botoes {
   background-color: rgba(0, 0, 0, 0.3); /* RGB com Alpha (opacidade) */
   position: fixed;
-  top: 0;
-  right: 0;
-  width: 180px;
+  top: 0; /* Gruda no topo */
+  right: 0; /* Gruda na direita */
+  width: 180px; 
 
   display: flex;
   flex-direction: column; /* Pra ficarem um em baixo do outro no flex */
